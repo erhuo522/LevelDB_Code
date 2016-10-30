@@ -547,6 +547,7 @@
 		DF77123A1DC6015E00B2CF0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = ../lib/mac;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					LEVELDB_PLATFORM_POSIX,
@@ -565,6 +566,7 @@
 		DF77123B1DC6015E00B2CF0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CONFIGURATION_BUILD_DIR = ../lib/mac;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					LEVELDB_PLATFORM_POSIX,
