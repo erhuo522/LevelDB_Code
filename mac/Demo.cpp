@@ -11,27 +11,34 @@ int main(int argc, char** argv)
     // 打开一个数据库实例
     leveldb::Status status = leveldb::DB::Open(options, "./testdb", &db);
     assert(status.ok());
+    
     // LevelDB提供了Put、Get和Delete三个方法对数据库进行添加、查询和删除
     std::string key = "key";
-    std::string value = "value";
+    std::string value = "value of key";
     // 添加key=value
     status = db->Put(leveldb::WriteOptions(), key, value);
-    assert(status.ok());
-    // 根据key查询value
-    status = db->Get(leveldb::ReadOptions(), key, &value);
     assert(status.ok());
     
     // 修改操作（原生没有提供）由添加和删除合起来实现
     std::string key2 = "key2";
+    std::string value2 = "chuangfeng.ma";
     // 添加key2=value
     status = db->Put(leveldb::WriteOptions(),key2,value);
     assert(status.ok());
+    
+    std::string retVal;
+    // 根据key查询value
+    status = db->Get(leveldb::ReadOptions(), key, &retVal);
+    assert(status.ok());
+  
+    
     // 删除key
     status = db->Delete(leveldb::WriteOptions(), key);
     // 查询key2
     assert(status.ok());
     status = db->Get(leveldb::ReadOptions(), key2, &value);
     assert(status.ok());
+    
                  // 查询key
     status = db->Get(leveldb::ReadOptions(), key, &value);
     if (!status.ok())
